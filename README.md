@@ -1,6 +1,6 @@
 # Beach Week Brief
 
-A simple beach-week planning sheet for families. Weather, tides, low-tide walks, swim caution, UV, and beach conditions — updated every morning.
+A simple beach-week planning sheet for families. Weather, tides, low-tide walks, swim caution, UV, and beach conditions — updated each morning.
 
 Currently live for **Sandbridge, Virginia Beach, VA**.
 
