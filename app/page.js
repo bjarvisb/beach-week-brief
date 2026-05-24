@@ -48,4 +48,4 @@ export default function BeachWeekBriefLanding() {
             {BEACHES.map((b, i) => (
               <Link
                 key={b.slug}
-                href={`/${b.slug}
+                href={`/${b.slug}`}
