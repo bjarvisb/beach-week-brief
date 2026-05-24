@@ -15,6 +15,7 @@ import Link from "next/link";
 var BEACHES = [
   { slug: "sandbridge", name: "Sandbridge", region: "Virginia Beach, VA" },
   { slug: "duck", name: "Duck", region: "Outer Banks, NC" },
+  { slug: "kittyhawk", name: "Kitty Hawk", region: "Outer Banks, NC" },
 ];
 
 export default function BeachWeekBriefLanding() {
