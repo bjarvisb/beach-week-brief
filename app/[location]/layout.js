@@ -10,6 +10,10 @@ const BEACH_META = {
     name: "Duck",
     region: "Outer Banks, NC",
   },
+  kittyhawk: {
+  name: "Kitty Hawk",
+  region: "Outer Banks, NC",
+  },
 };
 
 export async function generateMetadata({ params }) {
