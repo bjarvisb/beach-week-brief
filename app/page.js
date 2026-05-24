@@ -36,7 +36,7 @@ export default function BeachWeekBriefLanding() {
       <section className="landing-sheet" style={$sheet}>
         <header style={$masthead}>
           <div style={$eyebrow}>Beach Week Brief</div>
-          <h1 className="hero-title" style={$title}>A family beach-house fridge note, updated every morning.</h1>
+          <h1 className="hero-title" style={$title}>A family beach-house fridge note, <br />updated every morning.</h1>
           <p style={$lede}>
             Beach Week Brief turns vacation beach conditions into one calm planning sheet for your family.
           </p>
