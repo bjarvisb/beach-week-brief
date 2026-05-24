@@ -45,6 +45,21 @@ const BEACHES = {
       surfZone: "Surf Zone Forecast NCZ203",
     },
   },
+  kittyhawk: {
+  id: "kittyhawk",
+  name: "Kitty Hawk",
+  region: "Outer Banks, NC",
+  lat: 36.0646,
+  lon: -75.7057,
+  tideStation: "8651370",
+  surfZoneFile: "nc/ncz203",
+  nwsOffice: "MHX",
+  sourceLabels: {
+    forecast: "NWS Newport/Morehead City, NC (MHX)",
+    tides: "NOAA CO-OPS Station 8651370 (Duck Pier)",
+    surfZone: "Surf Zone Forecast NCZ203",
+  },
+},
 };
 
 // ─── Timezone helper ────────────────────────────────────────────────────────
