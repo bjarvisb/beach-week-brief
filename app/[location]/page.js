@@ -27,6 +27,7 @@ import { useParams } from "next/navigation";
 const BEACH_NAMES = {
   sandbridge: "Sandbridge, Virginia Beach, VA",
   duck: "Duck, Outer Banks, NC",
+  kittyhawk: "Kitty Hawk, Outer Banks, NC",
 };
 
 // ─── Interpretation ─────────────────────────────────────────────────────────
