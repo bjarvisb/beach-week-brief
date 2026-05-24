@@ -66,7 +66,7 @@ export default function BeachWeekBriefLanding() {
         </header>
 
         <section style={$sourceBox}>
-          <p style={$sourceHead}>Built from public data. Written for families.</p>
+          <p style={$sourceHead}>Built from public data. Organized for families.</p>
           <p style={$sourceText}>
             Official weather, tide, surf, and advisory data turned into one plain-English planning sheet.
           </p>
