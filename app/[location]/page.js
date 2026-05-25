@@ -331,7 +331,7 @@ export default function BeachWeekBrief() {
                 val={`${g.bestWalk.day.dayOfWeek}, ${g.bestWalk.w}`} />
             )}
             {g.flex && (
-              <GR label="Keep flexible"
+              <GR label="Stay flexible"
                 val={`${g.flex.dayOfWeek} — ${g.flex.rainChance}% rain`} />
             )}
             {g.caution && <GR label="Swim caution" val={g.caution} warn />}
