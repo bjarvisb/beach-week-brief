@@ -179,7 +179,7 @@ var $groupHeader = {
 
 var $groupBeaches = {
   fontSize: 15,
-  fontWeight: 600,
+  fontWeight: 500,
   color: C.paper,
   lineHeight: 1.6,
   marginBottom: 2,
