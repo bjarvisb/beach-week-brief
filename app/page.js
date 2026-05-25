@@ -8,15 +8,13 @@
  * It explains the value quickly and sends people to a live brief.
  *
  * This is intentionally not a dashboard, map, app shell, or marketing site.
+ * Beach configs live in lib/beaches.js — add new beaches there.
  */
 
 import Link from "next/link";
+import { getLandingGroups } from "../lib/beaches";
 
-var BEACHES = [
-  { slug: "sandbridge", name: "Sandbridge", region: "Virginia Beach, VA" },
-  { slug: "duck", name: "Duck", region: "Outer Banks, NC" },
-  { slug: "kittyhawk", name: "Kitty Hawk", region: "Outer Banks, NC" },
-];
+var groups = getLandingGroups();
 
 export default function BeachWeekBriefLanding() {
   return (
@@ -26,8 +24,8 @@ export default function BeachWeekBriefLanding() {
         *, *::before, *::after { box-sizing: border-box; }
         body { margin: 0; }
         a { color: inherit; }
-        .beach-row { text-decoration: none; display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; cursor: pointer; }
-        .beach-row:hover { background: rgba(255,253,247,0.08); }
+        .beach-link { text-decoration: none; color: ${C.paper}; }
+        .beach-link:hover { text-decoration: underline; text-underline-offset: 2px; }
         @media (max-width: 680px) {
           .landing-sheet { padding: 30px 20px 24px !important; }
           .hero-title { font-size: 28px !important; max-width: 360px !important; }
@@ -46,21 +44,24 @@ export default function BeachWeekBriefLanding() {
           </div>
 
           <div style={$beachBox}>
-            {BEACHES.map(function(b, i) {
-              var isLast = i === BEACHES.length - 1;
+            {groups.map(function(g, gi) {
               return (
-                <Link
-                  key={b.slug}
-                  href={"/" + b.slug}
-                  className="beach-row"
-                  style={isLast ? {} : { borderBottom: "1px solid rgba(255,253,247,0.15)" }}
-                >
-                  <div>
-                    <span style={$beachName}>{b.name}</span>
-                    <span style={$beachRegion}>{b.region}</span>
+                <div key={g.group}>
+                  {gi > 0 && <div style={$groupDivider} />}
+                  <div style={$groupHeader}>{g.group}</div>
+                  <div style={$groupBeaches}>
+                    {g.beaches.map(function(b, bi) {
+                      return (
+                        <span key={b.slug}>
+                          {bi > 0 && <span style={$dot}> · </span>}
+                          <Link href={"/" + b.slug} className="beach-link">
+                            {b.name}
+                          </Link>
+                        </span>
+                      );
+                    })}
                   </div>
-                  <span style={$beachArrow}>&rarr;</span>
-                </Link>
+                </div>
               );
             })}
           </div>
@@ -163,24 +164,36 @@ var $beachBox = {
   overflow: "hidden",
   margin: "0 auto 24px",
   maxWidth: 440,
+  padding: "14px 20px",
   textAlign: "left",
 };
 
-var $beachName = {
+var $groupHeader = {
+  fontSize: 10,
+  fontWeight: 700,
+  textTransform: "uppercase",
+  letterSpacing: "0.8px",
+  color: "rgba(255,253,247,0.55)",
+  marginBottom: 4,
+};
+
+var $groupBeaches = {
   fontSize: 15,
   fontWeight: 600,
   color: C.paper,
+  lineHeight: 1.6,
+  marginBottom: 2,
 };
 
-var $beachRegion = {
-  fontSize: 14,
-  color: "rgba(255,253,247,0.8)",
-  marginLeft: 10,
+var $groupDivider = {
+  height: 1,
+  backgroundColor: "rgba(255,253,247,0.15)",
+  margin: "10px 0 12px",
 };
 
-var $beachArrow = {
-  color: "rgba(255,253,247,0.5)",
-  fontSize: 16,
+var $dot = {
+  color: "rgba(255,253,247,0.4)",
+  fontWeight: 400,
 };
 
 var $sourceBox = {
