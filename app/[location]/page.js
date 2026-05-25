@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
+import { getDisplayName } from "../../lib/beaches";
 
 /*
  * Beach Week Brief — Shared beach page
@@ -22,13 +23,7 @@ import { useParams } from "next/navigation";
 
 // Brief data is fetched from /api/brief/[location] at runtime.
 // See pages/api/brief/[location].js for the server-side generator.
-
-// ─── Beach display names (for loading/error states before API responds) ────
-const BEACH_NAMES = {
-  sandbridge: "Sandbridge, Virginia Beach, VA",
-  duck: "Duck, Outer Banks, NC",
-  kittyhawk: "Kitty Hawk, Outer Banks, NC",
-};
+// Beach configs live in lib/beaches.js — add new beaches there.
 
 // ─── Interpretation ─────────────────────────────────────────────────────────
 // Restrained. Helps families read the week. Does not pretend to know the plan.
@@ -233,7 +228,7 @@ export default function BeachWeekBrief() {
       .catch((err) => setError(err.message));
   }, [location]);
 
-  const displayName = BEACH_NAMES[location] || location;
+  const displayName = getDisplayName(location);
 
   // Loading state
   if (!b && !error) {
