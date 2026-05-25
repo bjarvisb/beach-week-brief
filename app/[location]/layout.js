@@ -1,23 +1,10 @@
-// Metadata config for each supported beach.
-// To add a new beach, add an entry here and in pages/api/brief/[location].js BEACHES.
+// Dynamic metadata for each beach page.
+// Beach configs live in lib/beaches.js — add new beaches there.
 
-const BEACH_META = {
-  sandbridge: {
-    name: "Sandbridge",
-    region: "Virginia Beach",
-  },
-  duck: {
-    name: "Duck",
-    region: "Outer Banks, NC",
-  },
-  kittyhawk: {
-  name: "Kitty Hawk",
-  region: "Outer Banks, NC",
-  },
-};
+import { getBeach } from "../../lib/beaches";
 
 export async function generateMetadata({ params }) {
-  const beach = BEACH_META[params.location];
+  const beach = getBeach(params.location);
 
   if (!beach) {
     return {
@@ -27,11 +14,11 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title: `${beach.name} — Beach Week Brief`,
-    description: `7-day beach-week planning sheet for ${beach.name}, ${beach.region}. Weather, tides, low-tide walks, swim caution, UV, and beach conditions.`,
+    title: beach.meta.title,
+    description: beach.meta.description,
     openGraph: {
-      title: `${beach.name} — Beach Week Brief`,
-      description: `A simple beach-week planning sheet for ${beach.name}, ${beach.region}. Weather, tides, and beach conditions updated every morning.`,
+      title: beach.meta.title,
+      description: beach.meta.ogDescription,
     },
   };
 }
