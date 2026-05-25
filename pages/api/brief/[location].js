@@ -5,62 +5,12 @@
 //
 // All dates and times are Eastern (America/New_York).
 //
-// Usage: /api/brief/sandbridge
-// Later: /api/brief/obx-north (just add config)
+// Beach configs live in lib/beaches.js — add new beaches there.
+
+import { BEACHES } from "../../../lib/beaches";
 
 const USER_AGENT = "(BeachWeekBrief, beachweekbrief.com)";
 const TIMEZONE = "America/New_York";
-
-// ─── Beach configurations ───────────────────────────────────────────────────
-// To add a new beach, add an entry here. The fetch logic is the same for all.
-
-const BEACHES = {
-  sandbridge: {
-    id: "sandbridge",
-    name: "Sandbridge",
-    region: "Virginia Beach, VA",
-    lat: 36.7458,
-    lon: -75.9444,
-    tideStation: "8639428",
-    surfZoneFile: "va/vaz098",
-    nwsOffice: "AKQ",
-    sourceLabels: {
-      forecast: "NWS Wakefield, VA (AKQ)",
-      tides: "NOAA CO-OPS Station 8639428",
-      surfZone: "Surf Zone Forecast VAZ098",
-    },
-  },
-  duck: {
-    id: "duck",
-    name: "Duck",
-    region: "Outer Banks, NC",
-    lat: 36.1696,
-    lon: -75.7552,
-    tideStation: "8651370",
-    surfZoneFile: "nc/ncz203",
-    nwsOffice: "MHX",
-    sourceLabels: {
-      forecast: "NWS Newport/Morehead City, NC (MHX)",
-      tides: "NOAA CO-OPS Station 8651370",
-      surfZone: "Surf Zone Forecast NCZ203",
-    },
-  },
-  kittyhawk: {
-  id: "kittyhawk",
-  name: "Kitty Hawk",
-  region: "Outer Banks, NC",
-  lat: 36.0646,
-  lon: -75.7057,
-  tideStation: "8651370",
-  surfZoneFile: "nc/ncz203",
-  nwsOffice: "MHX",
-  sourceLabels: {
-    forecast: "NWS Newport/Morehead City, NC (MHX)",
-    tides: "NOAA CO-OPS Station 8651370 (Duck Pier)",
-    surfZone: "Surf Zone Forecast NCZ203",
-  },
-},
-};
 
 // ─── Timezone helper ────────────────────────────────────────────────────────
 // Returns the current date string in Eastern time as YYYY-MM-DD
