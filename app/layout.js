@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/next";
+
 export const metadata = {
   title: "Beach Week Brief",
   description:
@@ -41,6 +43,7 @@ export default function RootLayout({ children }) {
         }}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
