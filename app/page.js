@@ -40,7 +40,7 @@ export default function BeachWeekBriefLanding() {
             Beach Week Brief turns vacation beach conditions into one calm planning sheet for your family.
           </p>
           <div style={$freshnessLine}>
-            Rolling 7-day brief &middot; Updated each morning
+            Today through next week &middot; Updated every morning
           </div>
 
           <div style={$beachBox}>
@@ -70,7 +70,7 @@ export default function BeachWeekBriefLanding() {
         <section style={$sourceBox}>
           <p style={$sourceHead}>Built from public data. Organized for families.</p>
           <p style={$sourceText}>
-            Official weather, tide, surf, and advisory data turned into one plain-English planning sheet.
+            Official weather, tide, surf, and advisory data translated into plain-English beach planning.
           </p>
         </section>
 
